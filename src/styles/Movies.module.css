@@ -1,0 +1,65 @@
+.movieDashboard {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  gap: 8px;
+  padding: 30px 60px;
+  height: 92vh;
+  max-height: 610px;
+  align-items: start;
+  /* justify-content: start; */
+  width: 60%;
+  overflow-y: scroll;
+  margin: auto;
+}
+
+.information {
+  max-width: 100%;
+  width: 100%;
+  word-break: break-all;
+}
+
+.Characters {
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.keyVal {
+  width: 46%;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 16px;
+  outline: none;
+}
+
+.keyVal::placeholder {
+  color: #b3b3b3;
+  font-size: 16px;
+}
+
+.keyVal:focus {
+  border: none;
+  outline: none;
+  background-color: #3d3d3d;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2d2d2d;
+}
+
