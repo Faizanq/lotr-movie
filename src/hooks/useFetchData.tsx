@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
+import { Data } from "../types"
 
-interface Data {
-  docs: any[];
-  [key: string]: any;
-}
 
 interface FetchDataResult {
   data: Data | null;
   loading: boolean;
   error: string | null;
 }
+
 
 export default function useFetchData(selection: string | null): FetchDataResult {
   const [data, setData] = useState<Data | null>(null);
@@ -44,7 +42,7 @@ export default function useFetchData(selection: string | null): FetchDataResult 
         const jsonData: Data = await res.json();
         setData(jsonData);
       } catch (error) {
-        setError(error.message);
+        setError((error as Error).message);
       } finally {
         setLoading(false);
       }

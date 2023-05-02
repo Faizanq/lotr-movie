@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import styles from "../styles/dashboard.module.css"
 import Options from "./Options"
 import useLOTRData from "../hooks/useFetchData"
@@ -7,24 +7,25 @@ import Movies from "./Movies"
 import Books from "./Books"
 import Quotes from "./Quotes"
 import Loader from "./Loader"
+import { Character, Book, Movie, Quote } from "../types"
 
-type SelectionType = "character" | "book" | "movie" | "quote" | null;
+type SelectionType = "character" | "book" | "movie" | "quote";
 
 export default function Dashboard() {
-  const [selection, setSelection] = useState<SelectionType>(null)
-  const { data, loading, error } = useLOTRData(selection)
+  const [selection, setSelection] = useState<SelectionType>("character")
+  const { data, loading } = useLOTRData(selection)
   
-  function onClickHandler(clickedButton: SelectionType) {
-    return () => {  
-      setSelection(clickedButton)
-    }
+  function onClickHandler(clickedButton: SelectionType): void {
+    setSelection(clickedButton);
   }
 
-  const dataRender: {[key in SelectionType]: JSX.Element} = {
-    character : <Characters data={data} />,
-    book:<Books data={data} />,
-    movie:<Movies data={data} />,
-    quote:<Quotes data={data} />
+  const dataRender: {
+    [key in SelectionType]: JSX.Element;
+  } = {
+    character: <Characters data={data as { docs: Character[] }} />,
+    book: <Books data={data as { docs: Book[] }} />,
+    movie: <Movies data={data as { docs: Movie[] }} />,
+    quote: <Quotes data={data as { docs: Quote[] }} />
   }
 
   return (

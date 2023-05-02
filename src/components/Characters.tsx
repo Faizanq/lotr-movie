@@ -1,19 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react"
-
+import { useMemo, useState } from "react"
 import Styles from "../styles/Movies.module.css"
+import { Character } from "../types"
 
-interface Character {
-  _id: string
-  name: string
-  species: string
-  gender: string
-  homeworld: string
-}
 
 interface Props {
   data: {
     docs: Character[]
-    total: number
   }
 }
 

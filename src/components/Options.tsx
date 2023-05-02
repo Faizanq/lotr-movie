@@ -1,10 +1,10 @@
-import React, { Dispatch, SetStateAction } from 'react'
 import styles from '../styles/option.module.css'
+import { SelectionType } from "../types"
 
-interface Props {
-  selection: string | null
-  setSelection: Dispatch<SetStateAction<string | null>>
-}
+type Props = {
+  selection: SelectionType | null;
+  setSelection: (selection: SelectionType) => void;
+};
 
 export default function Options(props: Props) {
   const { selection, setSelection } = props
@@ -21,7 +21,7 @@ export default function Options(props: Props) {
         <button
           key={index}
           className={`${styles.button} ${question === selection ? styles.selectedButton : styles.nonSelectedButton}`}
-          onClick={setSelection(question)}
+          onClick={() => setSelection(question as SelectionType)}
         >
           {question}
         </button>

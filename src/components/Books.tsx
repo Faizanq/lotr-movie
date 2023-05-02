@@ -1,12 +1,7 @@
 import React from "react"
 import Styles from '../styles/Movies.module.css'
+import { Book } from "../types"
 
-interface Book {
-  id: string
-  name: string
-  author: string
-  published: string
-}
 
 interface Props {
   data: {

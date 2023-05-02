@@ -1,10 +1,6 @@
-import React from 'react';
 import Styles from '../styles/Movies.module.css';
+import { Movie } from "../types"
 
-type Movie = {
-  _id: string;
-  name: string;
-};
 
 type MoviesProps = {
   data: {

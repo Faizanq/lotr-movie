@@ -1,13 +1,6 @@
-import React from "react"
 import QuoteStyles from "../styles/Quotes.module.css"
 import Styles from "../styles/Movies.module.css"
-
-interface Quote {
-  id: string;
-  dialog: string;
-  character: string;
-  movie: string;
-}
+import { Quote } from "../types"
 
 interface Props {
   data: {
