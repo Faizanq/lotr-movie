@@ -9,6 +9,7 @@ interface Props {
   }
 }
 
+
 const Books: React.FC<Props> = ({ data }) => {
   return (
     <div className={Styles.movieDashboard}>
